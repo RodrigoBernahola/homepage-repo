@@ -1,3 +1,21 @@
+/* --- Variables y Reset --- */
+:root {
+    --color-primary: #0ea5e9; /* Azul cian del diseño */
+    --color-text: #333;
+    --color-bg-light: #fff;
+    --color-bg-gray: #f9fafb;
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Roboto', sans-serif;
+    
+    /* Colores para las tarjetas de proyectos */
+    --card-red: #a52a2a;
+    --card-purple: #6a5acd;
+    --card-green: #556b2f;
+    --card-pink: #d87093;
+    --card-orange: #cd853f;
+    --card-blue: #4682b4;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -5,9 +23,27 @@
 }
 
 body {
-    background-color: pink;
+    font-family: var(--font-body);
+    color: var(--color-text);
+    background-color: var(--color-bg-gray);
+    position: relative;
+    /* Evitamos el scroll horizontal indeseado */
+    overflow-x: hidden; 
 }
 
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
 
 .visually-hidden {
     position: absolute;
@@ -18,4 +54,271 @@ body {
     overflow: hidden;
     clip: rect(0, 0, 0, 0);
     border: 0;
+}
+
+/* Contenedor centralizado para limitar el ancho en pantallas gigantes */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* --- ESTILOS DEL HEADER (CABECERA) --- */
+
+/* Fondo decorativo azul con corte diagonal */
+.header-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 550px; /* Altura del fondo azul */
+    background-color: var(--color-primary);
+    z-index: -1; /* Se queda detrás de todo */
+    /* Crea la forma diagonal */
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+}
+
+header {
+    padding-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 0; /* En móvil están pegados */
+}
+
+/* Foto y Nombre */
+.hero-section {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto; /* Centrado en móvil */
+}
+
+.hero-img {
+    width: 100%;
+    height: auto;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.hero-name {
+    font-family: var(--font-heading);
+    color: white;
+    position: absolute;
+    bottom: 20px;
+    left: -10px; /* Efecto de salirse un poco */
+    font-size: 3rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    line-height: 1;
+}
+
+/* Tarjeta "About Me" */
+.about-card {
+    background-color: var(--color-bg-light);
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    margin-top: -5px; /* Pequeño ajuste en móvil */
+}
+
+.about-card h2 {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.about-card p {
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    font-size: 1rem;
+}
+
+.social-nav ul {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.social-nav i {
+    font-size: 2rem;
+    color: black;
+}
+
+/* --- ESTILOS DE MAIN (PROYECTOS) --- */
+main {
+    margin: 4rem auto;
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+/* Grid de proyectos */
+.projects-grid {
+    display: grid;
+    /* Por defecto (móvil) 1 columna */
+    grid-template-columns: 1fr; 
+    gap: 2rem;
+}
+
+.project-card {
+    background: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Los cuadros de colores de las imágenes */
+.project-image {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+/* Asignamos colores a cada tarjeta */
+.color-1 { background-color: var(--card-red); }
+.color-2 { background-color: var(--card-purple); }
+.color-3 { background-color: var(--card-green); }
+.color-4 { background-color: var(--card-pink); }
+.color-5 { background-color: var(--card-orange); }
+.color-6 { background-color: var(--card-blue); }
+
+.project-info {
+    padding: 1.5rem;
+}
+
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.project-header h3 {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.project-links a {
+    margin-left: 10px;
+    color: black;
+}
+
+/* --- ESTILOS DEL FOOTER --- */
+footer {
+    background-color: var(--color-primary);
+    color: white;
+    padding: 4rem 0;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.footer-text h2 {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.address-details {
+    margin: 1.5rem 0;
+    font-style: normal;
+    line-height: 1.5;
+}
+
+.contact-methods {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
+}
+
+.contact-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-socials {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.footer-socials i {
+    font-size: 2rem;
+    color: white;
+}
+
+.footer-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px; /* Opcional */
+}
+
+
+/* --- MEDIA QUERIES (RESPONSIVIDAD) --- */
+
+/* Tablet (más de 768px) */
+@media (min-width: 768px) {
+    
+    /* Header: diseño superpuesto */
+    header {
+        flex-direction: row;
+        align-items: center;
+        padding-top: 80px;
+    }
+
+    .hero-section {
+        margin: 0;
+        z-index: 1; /* Para asegurarnos que se vea bien */
+        flex: 0 0 45%; /* La foto ocupa un poco menos de la mitad */
+    }
+
+    .about-card {
+        margin-top: 0;
+        margin-left: -50px; /* Superposición negativa: se mueve a la izquierda sobre la foto */
+        padding: 3rem;
+        z-index: 2; /* Texto por encima de la foto si chocan, o al lado */
+        position: relative;
+        top: 60px; /* Bajamos un poco la tarjeta blanca */
+        flex: 1;
+    }
+
+    /* Grid de proyectos: 2 columnas */
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Desktop (más de 1024px) */
+@media (min-width: 1024px) {
+    
+    /* Grid de proyectos: 3 columnas */
+    .projects-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* Footer: Lado a lado */
+    .footer-content {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .footer-text {
+        flex: 1;
+        max-width: 500px;
+    }
+
+    .footer-image {
+        flex: 1;
+        max-width: 500px;
+    }
 }
